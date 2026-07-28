@@ -1,0 +1,242 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Home Depot Bulk Inventory by ZIP dataset record",
+  "description": "One point-in-time product-by-store observation or explicit failure from the Home Depot Bulk Inventory by ZIP Actor.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "Outcome of this product and store check.",
+      "enum": [
+        "SUCCESS",
+        "FAILED"
+      ]
+    },
+    "productInput": {
+      "type": "string",
+      "description": "Product identifier or reference accepted from the input."
+    },
+    "productId": {
+      "type": "string",
+      "description": "Resolved Home Depot Internet ID.",
+      "pattern": "^[0-9]{6,10}$"
+    },
+    "storeSkuNumber": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Home Depot Store SKU when exposed."
+    },
+    "productName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Product name returned by the storefront."
+    },
+    "modelNumber": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Manufacturer model number when exposed."
+    },
+    "productUrl": {
+      "type": "string",
+      "description": "Canonical or fallback Home Depot product URL.",
+      "format": "uri"
+    },
+    "zipCodeRequested": {
+      "type": "string",
+      "description": "Five-digit US ZIP code requested in the input.",
+      "pattern": "^[0-9]{5}$"
+    },
+    "storeId": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Home Depot store identifier for the checked location."
+    },
+    "storeName": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Normalized public store name."
+    },
+    "storeNameRaw": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Store name as returned by the source."
+    },
+    "storeAddress": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Public business address for the checked store."
+    },
+    "distanceMiles": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Source-reported distance from the requested ZIP, in miles.",
+      "minimum": 0
+    },
+    "price": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Storefront price observed for the checked context.",
+      "minimum": 0
+    },
+    "originalPrice": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Original price when the storefront exposes one.",
+      "minimum": 0
+    },
+    "clearancePrice": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Clearance price when the storefront exposes one.",
+      "minimum": 0
+    },
+    "clearancePercentageOff": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Clearance discount percentage when exposed.",
+      "minimum": 0
+    },
+    "bulkPrice": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Per-unit bulk price when exposed.",
+      "minimum": 0
+    },
+    "bulkQuantityRequired": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Minimum quantity required for the bulk price.",
+      "minimum": 0
+    },
+    "stockQuantity": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Point-in-time digital inventory count when exposed. Null is not zero.",
+      "minimum": 0
+    },
+    "inStock": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Digital in-stock signal for this observation."
+    },
+    "limitedQuantity": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Limited-quantity signal when exposed."
+    },
+    "pickupAvailable": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Digital pickup availability signal."
+    },
+    "curbsidePickupAvailable": {
+      "type": [
+        "boolean",
+        "null"
+      ],
+      "description": "Digital curbside pickup availability signal."
+    },
+    "maxPickupQuantity": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Maximum pickup quantity when exposed.",
+      "minimum": 0
+    },
+    "availabilityType": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Raw availability classification returned by the storefront."
+    },
+    "reasonCode": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Machine-readable reason for a failed row; null on success."
+    },
+    "errorMessage": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Sanitized diagnostic for a failed row; null on success."
+    },
+    "checkedAt": {
+      "type": "string",
+      "description": "UTC timestamp for the point-in-time observation.",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "status",
+    "productInput",
+    "productId",
+    "storeSkuNumber",
+    "productName",
+    "modelNumber",
+    "productUrl",
+    "zipCodeRequested",
+    "storeId",
+    "storeName",
+    "storeNameRaw",
+    "storeAddress",
+    "distanceMiles",
+    "price",
+    "originalPrice",
+    "clearancePrice",
+    "clearancePercentageOff",
+    "bulkPrice",
+    "bulkQuantityRequired",
+    "stockQuantity",
+    "inStock",
+    "limitedQuantity",
+    "pickupAvailable",
+    "curbsidePickupAvailable",
+    "maxPickupQuantity",
+    "availabilityType",
+    "reasonCode",
+    "errorMessage",
+    "checkedAt"
+  ]
+}

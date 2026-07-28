@@ -1,0 +1,20 @@
+{
+  "products": [
+    "206577650",
+    "205909852"
+  ],
+  "zipCodes": [
+    "95050",
+    "10001"
+  ],
+  "storesPerZip": 3,
+  "maxMatrixRows": 12,
+  "requestTimeoutSecs": 45,
+  "proxyConfiguration": {
+    "useApifyProxy": true,
+    "apifyProxyGroups": [
+      "RESIDENTIAL"
+    ],
+    "apifyProxyCountry": "US"
+  }
+}
