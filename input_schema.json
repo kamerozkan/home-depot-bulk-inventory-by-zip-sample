@@ -1,0 +1,73 @@
+{
+  "title": "Home Depot Bulk Inventory by ZIP",
+  "description": "Enter Home Depot Internet IDs, product URLs, or Store SKUs and US ZIP codes. The Actor returns a complete product \u00d7 nearby-store inventory matrix.",
+  "type": "object",
+  "schemaVersion": 1,
+  "additionalProperties": false,
+  "properties": {
+    "products": {
+      "title": "Internet IDs, Store SKUs, or URLs",
+      "type": "array",
+      "description": "Use Home Depot Internet IDs, product URLs, or Store SKUs. Prefix a Store SKU with sku: to make its type explicit. Consult the live Actor pricing page for current event prices.",
+      "editor": "stringList",
+      "default": [
+        "206577650"
+      ],
+      "minItems": 1,
+      "maxItems": 100
+    },
+    "zipCodes": {
+      "title": "US ZIP codes",
+      "type": "array",
+      "description": "Five-digit US ZIP codes to resolve to nearby Home Depot stores. Cost scales with the matrix: products times ZIPs times storesPerZip. Malformed ZIPs are rejected by input validation before anything runs or bills.",
+      "editor": "stringList",
+      "default": [
+        "95050"
+      ],
+      "minItems": 1,
+      "maxItems": 10
+    },
+    "storesPerZip": {
+      "title": "Nearby stores per ZIP",
+      "type": "integer",
+      "description": "Number of nearby Home Depot stores checked for each ZIP.",
+      "default": 3,
+      "minimum": 1,
+      "maximum": 5
+    },
+    "maxMatrixRows": {
+      "title": "Maximum product \u00d7 store rows",
+      "type": "integer",
+      "description": "Maximum product by ZIP by store matrix size. Successful rows may be billed; consult the live Actor pricing page.",
+      "default": 300,
+      "minimum": 1,
+      "maximum": 500
+    },
+    "requestTimeoutSecs": {
+      "title": "Request timeout",
+      "type": "integer",
+      "description": "Timeout per Home Depot request.",
+      "default": 45,
+      "minimum": 10,
+      "maximum": 90,
+      "unit": "seconds"
+    },
+    "proxyConfiguration": {
+      "title": "Proxy configuration",
+      "type": "object",
+      "description": "US residential proxy is the default and the validated route. If you pass a custom configuration, keep RESIDENTIAL groups with US country: a plain datacenter override gets blocked by Home Depot and produces only free BLOCKED rows.",
+      "editor": "proxy",
+      "default": {
+        "useApifyProxy": true,
+        "apifyProxyGroups": [
+          "RESIDENTIAL"
+        ],
+        "apifyProxyCountry": "US"
+      }
+    }
+  },
+  "required": [
+    "products",
+    "zipCodes"
+  ]
+}

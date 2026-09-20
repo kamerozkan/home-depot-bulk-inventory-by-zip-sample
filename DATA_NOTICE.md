@@ -6,7 +6,7 @@ This repository is a technical sample for the [Home Depot Bulk Inventory by ZIP 
 
 It is not a continuous real-time feed, a nationwide inventory dataset, a physical shelf count, a reservation, or a price guarantee.
 
-## Audit snapshot
+## July 2026 audit snapshot
 
 The following state was verified through the public Apify API, public Store page, and authenticated owner console on 2026-07-28:
 
@@ -71,3 +71,19 @@ The run ID and dataset ID document provenance. They do not grant access to priva
 - No uptime, freshness, accuracy, completeness, inventory, or price SLA is provided by this repository.
 
 Users are responsible for reviewing applicable law, platform terms, database rights, privacy rules, retention rules, and downstream use requirements.
+
+## September 2026 repair evidence
+
+Additional samples were collected by authenticated owner-started cloud tests on 2026-09-20. Their inputs contain only public product identifiers and US ZIP codes. The 04 output is one row from run `fntUOrdgJ4atjG1yC`; the 05 output is the three-row dataset from run `pNtXCQkTGPDWw1Xo3`; the 06 output is the four-row dataset from run `GoGYzf2p9ou8cxDoE`. All three used build `0.45.52`.
+
+The mixed-availability case contains two `NO_STORE_DATA` failures for product `205909852`. These are retained as failures, with null inventory fields. They are not converted into successful rows or zero-stock claims. Failure rows are not billed as inventory-result events.
+
+The startup defect was separately reproduced in run `aeJI3haRZaxfkw3SF` on build `0.45.50`. Removing only the maintenance block was insufficient: run `nalMPS80R1Yr1tkO3` on build `0.45.51` reported platform success despite zero successful data rows. Its OUTPUT status was FAILED. The subsequent repair corrects that mismatch.
+
+Public 30-day run statistics exclude runs started by the Actor owner and include historical failures. Owner smoke tests do not reset or improve that public metric. This repository does not claim that the historical failure percentage is repaired retroactively or that all product-store combinations yield data.
+
+### Released build
+
+Build `0.45.53` (`hYpld3g8jp4HpzYUV`) was promoted to `latest` after run `niagodKIHIztJFpNC` produced three successful rows with no failed rows. The 07 output file contains that dataset. The default timeout was changed from 120 to 300 seconds; memory stayed at 1024 MB. A fresh Actor API read verified both settings after the update.
+
+The final test used direct GraphQL store resolution. The browser GraphQL fallback was added to the release but was not exercised by this final successful run. Eight local regression checks passed, including startup syntax and failure exit semantics. The public row schema is unchanged; the added samples preserve the same contract.

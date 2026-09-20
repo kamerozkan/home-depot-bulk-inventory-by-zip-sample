@@ -1,0 +1,11 @@
+{
+  "products": [
+    "206577650"
+  ],
+  "zipCodes": [
+    "95050"
+  ],
+  "storesPerZip": 1,
+  "maxMatrixRows": 1,
+  "requestTimeoutSecs": 45
+}

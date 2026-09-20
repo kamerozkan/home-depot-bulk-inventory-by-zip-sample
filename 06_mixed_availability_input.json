@@ -1,0 +1,12 @@
+{
+  "products": [
+    "206577650",
+    "205909852"
+  ],
+  "zipCodes": [
+    "10001",
+    "60601"
+  ],
+  "storesPerZip": 1,
+  "maxMatrixRows": 4
+}
