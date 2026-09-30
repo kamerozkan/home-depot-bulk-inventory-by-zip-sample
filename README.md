@@ -15,10 +15,26 @@ Check known Home Depot product identifiers against a bounded set of US ZIP codes
 
 This repository contains historical and September 2026 input/output examples, including explicit partial failures, and the row contract in [`dataset_record.schema.json`](dataset_record.schema.json).
 
+## Current small check and source limitation
+
+[Open the capped three-store check](https://apify.com/kamerozkan/home-depot-bulk-inventory-by-zip/examples/check-home-depot-stock-across-zip-codes)
+
+The existing public Task checks one known product (`206577650`) near ZIP `95050`, with three stores and `maxMatrixRows=3`. It saves 1024 MB memory and a 300-second timeout. [Current input](08_customer_check_input.json) and [actual final output](08_live_customer_check_output.json) are included. Inspect `OUTPUT.status`, successful/failed counts and each row's reason code before using the data or expanding volume.
+
+The final public-task run `De9himOlcheFaz9LE` on build `0.45.57` returned platform `SUCCEEDED` and `OUTPUT.status=SUCCEEDED`, with 3 successful rows and 0 failed rows. Three distinct store observations passed the bounded starter check.
+
+Three earlier owner-started three-store tests of builds 0.45.54, 0.45.55 and 0.45.56 failed to resolve any stores. A separate one-store run `BgHbzPKqj6PMN3rfs` on 0.45.56 produced [one real observation](09_live_one_store_observation_output.json) after two failed sessions. Its third session received a valid HTTP 200 storeSearch list. The service can instead return HTTP 206 with a `data/error` envelope and no usable stores. Source responses are intermittent. The positive single row and any later bounded success do not establish general reliability.
+
+The current release updates the README and two runtime modules: `src/session.js` and `src/store-locator.js`. It distinguishes source errors, access blocks, malformed responses and verified empty results. A proven HTTP 206 service-error envelope skips repeated fallback calls within the same unsuccessful session and lets the existing three-attempt retry select a fresh session. This reduces redundant requests; it does not promise source acceptance. All other source files and schemas remain unchanged. Eleven local tests passed; [verification evidence](customer-check-verification-2026-09-30.json) records the exact live result.
+
+At the FREE tier checked on 30 September 2026, an Actor-start event costs $0.005 once after a valid session and an inventory-result event costs $0.003 per successful row. Three successful rows illustrate $0.014 in event charges. Start is not priced per GB. Failed rows have no inventory-result charge; a start event can still apply after a valid session. The final verification requested a $0.05 maximum total charge. This arithmetic is not an owner invoice or customer revenue; live pricing and plan terms govern actual billing.
+
+[Ask for help or report an issue](https://console.apify.com/actors/tIDN1NdAFp95JAQiv/info/issues), with the public product ID, ZIP, run ID and reason code. After use, [share an honest rating or review](https://console.apify.com/actors/tIDN1NdAFp95JAQiv/info/reviews). Positive and critical feedback are both welcome.
+
 ## Start here
 
 1. Open the [Actor on Apify](https://apify.com/kamerozkan/home-depot-bulk-inventory-by-zip).
-2. Start with input 04 or 07 for a bounded, verified current-schema example.
+2. Read the current source limitation above and use [input 08](08_customer_check_input.json) for a capped check. Inputs 04 and 07 preserve their older verification dates.
 3. Start with a small product, ZIP, and store matrix.
 4. Treat every result as a point-in-time digital storefront observation.
 
@@ -26,7 +42,7 @@ At the 2026-07-28 audit, the Actor was public and its latest build `0.45.46` had
 
 ## September 2026 reliability investigation
 
-**Verified release on 2026-09-20:** `latest` now points to build `0.45.53` (`hYpld3g8jp4HpzYUV`). The default run timeout is 300 seconds with 1024 MB memory. The final [three-store input](07_release_verification_input.json) produced [three verified successful rows](07_live_release_verification_output.json) in run `niagodKIHIztJFpNC` (about 43 seconds from run start to finish). This is a bounded smoke test, not an uptime guarantee.
+**Historical release on 2026-09-20:** `latest` was set to build `0.45.53` (`hYpld3g8jp4HpzYUV`). The default run timeout is 300 seconds with 1024 MB memory. The final [three-store input](07_release_verification_input.json) produced [three verified successful rows](07_live_release_verification_output.json) in run `niagodKIHIztJFpNC` (about 43 seconds from run start to finish). This is a bounded smoke test, not an uptime guarantee.
 
 The release also adds browser-session GraphQL store lookup as a fallback and reads the complete HTTP body in the legacy locator navigation path. The final smoke used the primary direct GraphQL path; it does not independently prove fallback-path reliability.
 
@@ -76,7 +92,7 @@ The [input schema](input_schema.json) preserves the inspected structural constra
 }
 ```
 
-This is the exact owner-console snapshot of the sole public Example Task input. It uses legacy field names and is preserved as provenance. For a new configuration, use the current-schema fields shown in input 02 or 03.
+This is the exact July 2026 owner-console snapshot of the sole public Example Task input at that audit. It uses legacy field names and is preserved as provenance. For a new configuration, use the current-schema fields shown in input 02 or 03.
 
 </details>
 

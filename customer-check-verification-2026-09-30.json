@@ -1,0 +1,43 @@
+{
+  "runId": "De9himOlcheFaz9LE",
+  "buildId": "Az5hV79rfPWG5Ckns",
+  "buildNumber": "0.45.57",
+  "successfulRows": 3,
+  "failedRows": 0,
+  "uniqueStores": 3,
+  "dataStatus": "SUCCEEDED",
+  "platformStatus": "SUCCEEDED",
+  "healthyStarterVerified": true,
+  "reasonCodes": [],
+  "maxTotalChargeUsd": 0.05,
+  "ownerRunIsCustomerRevenue": false,
+  "checkedAt": "2026-09-30T19:58:48.067Z",
+  "actorId": "tIDN1NdAFp95JAQiv",
+  "taskId": "FTah87WeK1E6sodev",
+  "runtimeChanged": true,
+  "changedSourceFiles": [
+    "src/session.js",
+    "src/store-locator.js"
+  ],
+  "schemasChanged": false,
+  "schemaSha256": {
+    "input_schema.json": "c5cbce3650f9a2f50722c6ff80799b2056f67b2131e59b763f368b17d70480bf",
+    "dataset_record.schema.json": "ce75a24fc9c2588577c3aa573581079d51fea06b1fbe77457368940bec1ffc3a"
+  },
+  "runOptions": {
+    "build": "0.45.57",
+    "memoryMbytes": 1024,
+    "timeoutSecs": 300,
+    "maxTotalChargeUsd": 0.05
+  },
+  "oneStoreRunId": "BgHbzPKqj6PMN3rfs",
+  "oneStoreBuildNumber": "0.45.56",
+  "pricingCheckedAt": "2026-09-30",
+  "priceTier": "FREE",
+  "actorStartEventUsd": 0.005,
+  "successfulRowEventUsd": 0.003,
+  "threeSuccessfulRowsEventChargeExampleUsd": 0.014,
+  "priceExampleIsOwnerRunInvoice": false,
+  "testsPassed": 11,
+  "validationScope": "Dated owner-started checks only. Intermittent source responses remain; no universal availability or physical-stock guarantee."
+}

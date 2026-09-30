@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This repository is a technical sample for the [Home Depot Bulk Inventory by ZIP Actor](https://apify.com/kamerozkan/home-depot-bulk-inventory-by-zip). It demonstrates one exact public Example Task snapshot, two current-schema recipes, and three privacy-minimized live dataset rows.
+This repository is a technical sample for the [Home Depot Bulk Inventory by ZIP Actor](https://apify.com/kamerozkan/home-depot-bulk-inventory-by-zip). It preserves historical inputs and dated success/failure datasets, plus the capped public check and one-store observation inspected on 30 September 2026.
 
 It is not a continuous real-time feed, a nationwide inventory dataset, a physical shelf count, a reservation, or a price guarantee.
 
@@ -27,7 +27,7 @@ The current `0.45.46` build finished after the inspected public-task run. This r
 
 - [`01_public_store_example_legacy_input.json`](01_public_store_example_legacy_input.json) is an exact owner-console snapshot of the sole public Example Task input. Its successful inspected run used build `0.45.42`.
 - That task snapshot uses the legacy names `productInputs` and `maxRows`.
-- The current Store input schema uses `products` and `maxMatrixRows`. Use input 02 or 03 as the current-schema pattern for a new configuration.
+- The current Store input schema uses `products` and `maxMatrixRows`. Use input 08 for the current capped public check, with its source limitation. Inputs 02 and 03 remain unrun recipes from the July audit.
 - [`02_three_zip_comparison_recipe_input.json`](02_three_zip_comparison_recipe_input.json) and [`03_two_product_basket_recipe_input.json`](03_two_product_basket_recipe_input.json) are schema-valid recipes prepared for this repository. They are not additional public Example Tasks and were not run as part of this audit.
 
 ## Output provenance
@@ -88,6 +88,18 @@ Build `0.45.53` (`hYpld3g8jp4HpzYUV`) was promoted to `latest` after run `niagod
 
 The final test used direct GraphQL store resolution. The browser GraphQL fallback was added to the release but was not exercised by this final successful run. Eight local regression checks passed, including startup syntax and failure exit semantics. The public row schema is unchanged; the added samples preserve the same contract.
 
-## Listing update on September 30, 2026
+## Earlier listing-only update on September 30, 2026
 
 The Store title, description and search metadata were checked against the owned Actor and synchronized with this repository. This documentation update does not alter executable code, input or output schemas, recorded test outputs, artifact hashes, billing or runtime builds. Existing examples retain their original dates and validation limits. A public listing is not evidence of successful output, network acceptance or an achieved search ranking.
+
+## Response handling and customer check update on September 30, 2026
+
+The existing public Task `FTah87WeK1E6sodev` kept its URL and visibility. Its live input already used current field names. This update reduces its matrix cap from 10 to 3, saves explicit 1024 MB / 300-second run options, and clarifies its description with the current intermittent-source limitation. No duplicate Task was created.
+
+Released build `0.45.57` (`Az5hV79rfPWG5Ckns`) updates the README and two runtime modules (`src/session.js`, `src/store-locator.js`). Hash checks confirmed every other non-README source file stayed unchanged, including schemas. The Actor's pricing, visibility, Store/search metadata, categories, permissions and default run options stayed unchanged. Eleven local tests passed for valid records, legacy compatibility, ignored unrelated IDs, empty lists, challenges, safe diagnostics and HTTP 206 service-error handling.
+
+The final public-task run `De9himOlcheFaz9LE` on build `0.45.57` returned platform `SUCCEEDED` and `OUTPUT.status=SUCCEEDED`, with 3 successful rows and 0 failed rows. Three distinct store observations passed the bounded starter check. The release validates response handling and retains the zero-data failure gate. It is not an announcement that the external service is universally repaired. The positive 09 sample is from one-store run `BgHbzPKqj6PMN3rfs` on 0.45.56. Older examples retain their original timestamps and provenance.
+
+The new files contain only owner-test inputs using public product IDs and ZIPs, public product and business facts, observation timestamps, or explicit failure reasons. They exclude customer inputs, contacts, tokens, cookies, raw upstream payloads, proxy session identifiers and private run costs. Owner tests do not constitute customer revenue or improve the public historical success metric. Digital values are not physical shelf guarantees or reservations.
+
+The README now states the flat $0.005 FREE-tier start event and $0.003 successful-row event separately. Failed rows have no inventory-result charge; a start charge can still apply after a valid session. Live pricing is authoritative. [Verification metadata](customer-check-verification-2026-09-30.json) records the exact observed outcome, caps, version and schema hashes.

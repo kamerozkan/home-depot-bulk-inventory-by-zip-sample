@@ -8,8 +8,19 @@
   "isPublic": true,
   "url": "https://apify.com/kamerozkan/home-depot-bulk-inventory-by-zip",
   "checkedAt": "2026-09-30",
-  "changeScope": "listing metadata and sample documentation only",
-  "runtimeChanged": false,
+  "changeScope": "listing metadata synchronized; response handling, honest source limitation and existing capped public check updated",
+  "runtimeChanged": true,
   "schemasChanged": false,
-  "examplesRegenerated": false
+  "examplesRegenerated": false,
+  "latestBuildNumber": "0.45.57",
+  "latestBuildId": "Az5hV79rfPWG5Ckns",
+  "starterTaskId": "FTah87WeK1E6sodev",
+  "starterRunId": "De9himOlcheFaz9LE",
+  "healthyStarterVerified": true,
+  "newExamplesAdded": [
+    "08_customer_check_input.json",
+    "08_live_customer_check_output.json",
+    "09_live_one_store_observation_output.json"
+  ],
+  "historicalExamplesRegenerated": false
 }
