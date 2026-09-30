@@ -1,0 +1,15 @@
+{
+  "id": "tIDN1NdAFp95JAQiv",
+  "name": "home-depot-bulk-inventory-by-zip",
+  "title": "Home Depot Scraper - Price & Inventory by ZIP",
+  "description": "Home Depot scraper for product prices and inventory by ZIP code. Look up known products across nearby stores, with stock counts when exposed, pickup and curbside availability. Compare multi-item baskets against store fulfillment. Failed rows are free.",
+  "seoTitle": "Home Depot Scraper - Stock & Price Lookup by ZIP",
+  "seoDescription": "Look up Home Depot product prices, store inventory and pickup by ZIP code. Compare known items across nearby stores, with explicit unavailable fields.",
+  "isPublic": true,
+  "url": "https://apify.com/kamerozkan/home-depot-bulk-inventory-by-zip",
+  "checkedAt": "2026-09-30",
+  "changeScope": "listing metadata and sample documentation only",
+  "runtimeChanged": false,
+  "schemasChanged": false,
+  "examplesRegenerated": false
+}

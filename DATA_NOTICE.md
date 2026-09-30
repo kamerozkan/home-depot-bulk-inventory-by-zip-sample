@@ -87,3 +87,7 @@ Public 30-day run statistics exclude runs started by the Actor owner and include
 Build `0.45.53` (`hYpld3g8jp4HpzYUV`) was promoted to `latest` after run `niagodKIHIztJFpNC` produced three successful rows with no failed rows. The 07 output file contains that dataset. The default timeout was changed from 120 to 300 seconds; memory stayed at 1024 MB. A fresh Actor API read verified both settings after the update.
 
 The final test used direct GraphQL store resolution. The browser GraphQL fallback was added to the release but was not exercised by this final successful run. Eight local regression checks passed, including startup syntax and failure exit semantics. The public row schema is unchanged; the added samples preserve the same contract.
+
+## Listing update on September 30, 2026
+
+The Store title, description and search metadata were checked against the owned Actor and synchronized with this repository. This documentation update does not alter executable code, input or output schemas, recorded test outputs, artifact hashes, billing or runtime builds. Existing examples retain their original dates and validation limits. A public listing is not evidence of successful output, network acceptance or an achieved search ranking.

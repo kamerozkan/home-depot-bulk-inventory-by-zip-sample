@@ -1,6 +1,10 @@
 > **Live API:** [Run Home Depot Bulk Inventory by ZIP on Apify](https://apify.com/kamerozkan/home-depot-bulk-inventory-by-zip)
 
-# Home Depot Bulk Inventory by ZIP: Samples and JSON Schema
+# Home Depot Scraper - Price & Inventory by ZIP: Samples
+
+Home Depot scraper for product prices and inventory by ZIP code. Look up known products across nearby stores, with stock counts when exposed, pickup and curbside availability. Compare multi-item baskets against store fulfillment. Failed rows are free.
+
+[Run Home Depot Scraper - Price & Inventory by ZIP on Apify](https://apify.com/kamerozkan/home-depot-bulk-inventory-by-zip)
 
 [![Apify Actor](https://img.shields.io/badge/Apify-Run%20Actor-00c7b7?logo=apify)](https://apify.com/kamerozkan/home-depot-bulk-inventory-by-zip)
 ![JSON Schema](https://img.shields.io/badge/schema-JSON%20Schema%202020--12-4c1)
