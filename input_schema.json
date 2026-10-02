@@ -1,6 +1,6 @@
 {
   "title": "Home Depot Bulk Inventory by ZIP",
-  "description": "Enter Home Depot Internet IDs, product URLs, or Store SKUs and US ZIP codes. The Actor returns a complete product \u00d7 nearby-store inventory matrix.",
+  "description": "Enter Home Depot Internet IDs, product URLs, or Store SKUs and US ZIP codes. Inspect useful rows, failures and store coverage in the returned matrix.",
   "type": "object",
   "schemaVersion": 1,
   "additionalProperties": false,
@@ -8,7 +8,7 @@
     "products": {
       "title": "Internet IDs, Store SKUs, or URLs",
       "type": "array",
-      "description": "Use Home Depot Internet IDs, product URLs, or Store SKUs. Prefix a Store SKU with sku: to make its type explicit. Consult the live Actor pricing page for current event prices.",
+      "description": "Use Internet IDs, product URLs, or Store SKUs. Prefix a Store SKU with sku: to make the identifier type explicit. At the FREE tier checked on 2 October 2026: $0.005 once after a valid session plus $0.003 per successful matrix row. Failed rows have no inventory-result charge; a start event can still apply. Live pricing is authoritative.",
       "editor": "stringList",
       "default": [
         "206577650"
@@ -36,9 +36,9 @@
       "maximum": 5
     },
     "maxMatrixRows": {
-      "title": "Maximum product \u00d7 store rows",
+      "title": "Maximum product × store rows",
       "type": "integer",
-      "description": "Maximum product by ZIP by store matrix size. Successful rows may be billed; consult the live Actor pricing page.",
+      "description": "Maximum requested product x store rows. Inputs exceeding this matrix size are rejected before source collection. This limits potential inventory-result events; it is not a cap on compute or proxy usage. Set the run maximum total charge separately.",
       "default": 300,
       "minimum": 1,
       "maximum": 500
@@ -55,7 +55,7 @@
     "proxyConfiguration": {
       "title": "Proxy configuration",
       "type": "object",
-      "description": "US residential proxy is the default and the validated route. If you pass a custom configuration, keep RESIDENTIAL groups with US country: a plain datacenter override gets blocked by Home Depot and produces only free BLOCKED rows.",
+      "description": "US residential proxy is enabled by default and was used for the bounded owner verification. Source access can remain intermittent; inspect failures and actual useful output. Failed rows have no inventory-result charge, but a start event can still apply.",
       "editor": "proxy",
       "default": {
         "useApifyProxy": true,

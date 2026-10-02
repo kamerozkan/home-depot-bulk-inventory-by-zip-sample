@@ -1,0 +1,13 @@
+{
+  "buildId": "VPNUsPv9P9CW6C2TK",
+  "buildNumber": "0.45.62",
+  "runId": "r14ZtIdQIrghjZRbb",
+  "ownerTest": true,
+  "platformStatus": "FAILED",
+  "datasetRows": 0,
+  "chargedEventCounts": {
+    "inventory-result": 0,
+    "actor-start": 0
+  },
+  "purpose": "Malformed ZIP is rejected before browser/source work or paid result events"
+}

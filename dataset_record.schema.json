@@ -7,7 +7,7 @@
   "properties": {
     "status": {
       "type": "string",
-      "description": "Outcome of this product and store check.",
+      "description": "SUCCESS is a useful price or inventory observation for the verified product/store context. Inspect individual nullable fields; it does not guarantee every optional field.",
       "enum": [
         "SUCCESS",
         "FAILED"

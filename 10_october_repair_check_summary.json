@@ -1,0 +1,190 @@
+{
+  "status": "SUCCEEDED",
+  "requestedProducts": 1,
+  "matrixRows": 3,
+  "successfulRows": 3,
+  "failedRows": 0,
+  "storesChecked": 3,
+  "priceRange": {
+    "minimum": 114,
+    "maximum": 114,
+    "difference": 0,
+    "hasDifference": false
+  },
+  "stockRange": {
+    "minimum": 11,
+    "maximum": 32,
+    "difference": 21,
+    "hasDifference": true
+  },
+  "lowestPriceStore": {
+    "zipCodeRequested": "95050",
+    "storeId": "0630",
+    "storeName": "Santa Clara",
+    "storeAddress": "2435 Lafayette St, Santa Clara, CA, 95050",
+    "distanceMiles": null,
+    "productId": "206577650",
+    "productName": "Prep Series 1/2 HP Continuous Feed Garbage Disposal with Power Cord and Universal Mount",
+    "price": 114,
+    "stockQuantity": 16,
+    "inStock": true,
+    "pickupAvailable": true,
+    "curbsidePickupAvailable": true
+  },
+  "bestStockStore": {
+    "zipCodeRequested": "95050",
+    "storeId": "0640",
+    "storeName": "Kifer Rd",
+    "storeAddress": "680 Kifer Rd, Sunnyvale, CA, 94086",
+    "distanceMiles": null,
+    "productId": "206577650",
+    "productName": "Prep Series 1/2 HP Continuous Feed Garbage Disposal with Power Cord and Universal Mount",
+    "price": 114,
+    "stockQuantity": 32,
+    "inStock": true,
+    "pickupAvailable": true,
+    "curbsidePickupAvailable": true
+  },
+  "productComparisons": [
+    {
+      "productId": "206577650",
+      "productName": "Prep Series 1/2 HP Continuous Feed Garbage Disposal with Power Cord and Universal Mount",
+      "storesCompared": 3,
+      "priceRange": {
+        "minimum": 114,
+        "maximum": 114,
+        "difference": 0,
+        "hasDifference": false
+      },
+      "stockRange": {
+        "minimum": 11,
+        "maximum": 32,
+        "difference": 21,
+        "hasDifference": true
+      },
+      "lowestPriceStore": {
+        "zipCodeRequested": "95050",
+        "storeId": "0630",
+        "storeName": "Santa Clara",
+        "storeAddress": "2435 Lafayette St, Santa Clara, CA, 95050",
+        "distanceMiles": null,
+        "productId": "206577650",
+        "productName": "Prep Series 1/2 HP Continuous Feed Garbage Disposal with Power Cord and Universal Mount",
+        "price": 114,
+        "stockQuantity": 16,
+        "inStock": true,
+        "pickupAvailable": true,
+        "curbsidePickupAvailable": true
+      },
+      "bestStockStore": {
+        "zipCodeRequested": "95050",
+        "storeId": "0640",
+        "storeName": "Kifer Rd",
+        "storeAddress": "680 Kifer Rd, Sunnyvale, CA, 94086",
+        "distanceMiles": null,
+        "productId": "206577650",
+        "productName": "Prep Series 1/2 HP Continuous Feed Garbage Disposal with Power Cord and Universal Mount",
+        "price": 114,
+        "stockQuantity": 32,
+        "inStock": true,
+        "pickupAvailable": true,
+        "curbsidePickupAvailable": true
+      }
+    }
+  ],
+  "storesWithAllItems": [
+    {
+      "zipCodeRequested": "95050",
+      "storeId": "0630",
+      "storeName": "Santa Clara",
+      "distanceMiles": null,
+      "totalPrice": 114,
+      "priceComplete": true,
+      "itemCount": 1
+    },
+    {
+      "zipCodeRequested": "95050",
+      "storeId": "0642",
+      "storeName": "Campbell",
+      "distanceMiles": null,
+      "totalPrice": 114,
+      "priceComplete": true,
+      "itemCount": 1
+    },
+    {
+      "zipCodeRequested": "95050",
+      "storeId": "0640",
+      "storeName": "Kifer Rd",
+      "distanceMiles": null,
+      "totalPrice": 114,
+      "priceComplete": true,
+      "itemCount": 1
+    }
+  ],
+  "chargeLimitReached": false,
+  "products": [
+    "206577650"
+  ],
+  "productMappings": [
+    {
+      "productInput": "206577650",
+      "productInputs": [
+        "206577650"
+      ],
+      "productId": "206577650",
+      "status": "RESOLVED",
+      "errorMessage": null
+    }
+  ],
+  "zipCodes": [
+    "95050"
+  ],
+  "resolvedStores": {
+    "95050": [
+      {
+        "storeId": "0630",
+        "storeName": "Santa Clara",
+        "storeNameRaw": "Santa Clara",
+        "address": "2435 Lafayette St, Santa Clara, CA, 95050",
+        "distanceMiles": null
+      },
+      {
+        "storeId": "0642",
+        "storeName": "Campbell",
+        "storeNameRaw": "Campbell",
+        "address": "480 E Hamilton Ave, Campbell, CA, 95008",
+        "distanceMiles": null
+      },
+      {
+        "storeId": "0640",
+        "storeName": "Kifer Rd",
+        "storeNameRaw": "Kifer Rd",
+        "address": "680 Kifer Rd, Sunnyvale, CA, 94086",
+        "distanceMiles": null
+      }
+    ]
+  },
+  "storeCoverage": {
+    "requestedStoresPerZip": 3,
+    "resolvedStoresByZip": {
+      "95050": 3
+    },
+    "underfilledZipCodes": [],
+    "complete": true
+  },
+  "finishedAt": "2026-10-02T10:05:28.709Z",
+  "isFinal": true,
+  "storeDiscovery": {
+    "95050": {
+      "strategy": "context-graphql",
+      "sourceScope": "ZIP_STORE_LOOKUP",
+      "nearestOrderVerified": false
+    }
+  },
+  "runInterrupted": false,
+  "completedZipCodes": [
+    "95050"
+  ],
+  "pendingZipCodes": [],
+  "activeZipCode": null
+}

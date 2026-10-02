@@ -13,9 +13,21 @@ Home Depot scraper for product prices and inventory by ZIP code. Look up known p
 
 Check known Home Depot product identifiers against a bounded set of US ZIP codes and nearby stores. Each dataset row records a point-in-time store context, price, digital inventory count when exposed, pickup signals, bulk pricing, or an explicit failure.
 
-This repository contains historical and September 2026 input/output examples, including explicit partial failures, and the row contract in [`dataset_record.schema.json`](dataset_record.schema.json).
+This repository contains dated owner-test input/output examples, including explicit partial failures, and the row contract in [`dataset_record.schema.json`](dataset_record.schema.json).
 
-## Current small check and source limitation
+## October 2 runtime repair: Healthy bounded result verified
+
+Published build `0.45.62` (`VPNUsPv9P9CW6C2TK`) uses the exact runtime and dependency files of healthy test build `0.45.61` (`60D2cbpDJqtx9cNU4`). Only README and input descriptions differ. The repair addresses product/store identity checks, unknown price and stock handling, transient SKU recovery, awaited delivery accounting, interruption checkpoints, and request deadlines. 122 local behavior controls passed, including independent negative cases. This is not a guarantee of external source uptime.
+
+Current bounded owner run `wNFgEfOn9quZqfYZ1`: platform `SUCCEEDED`, `OUTPUT.status=SUCCEEDED`, **3 useful observations and 0 failure rows**. [Exact input](10_october_repair_check_input.json), [actual dataset](10_october_repair_check_dataset.json), [actual OUTPUT](10_october_repair_check_summary.json), and [version/verification evidence](runtime-repair-verification-2026-10-02.json) retain the observed result. A green build does not prove source availability; a source failure is not zero stock.
+
+`OUTPUT` checkpoints now retain delivered rows during processing and interruption. Check `isFinal`, `pendingZipCodes`, `runInterrupted` and `storeCoverage` before automation. A matrix with fewer stores than requested is `PARTIAL` when it has useful observations. In-progress `RUNNING` output is not a finished delivery. Store lists come from a ZIP-specific locator request and preserve source order; they do not prove complete geographic coverage or nearest-store ranking. Null-store product responses are not used to choose stores because they may expose an unrelated default region. Unknown metadata remains unknown. Access challenges are not treated as a service-error trigger for this alternative path.
+
+[OUTPUT summary schema](output_summary.schema.json) describes the added progress fields; [dataset row schema](dataset_record.schema.json) retains the nullable row contract. Unknown basket prices are `totalPrice:null` and `priceComplete:false`. Failed source rows have no inventory-result charge. The final documentation build also has an [actual invalid ZIP control](11_october_invalid_zip_verification.json) with no dataset rows or paid events. The maximum charge setting limits paid events, not the developer's compute/proxy usage.
+
+Owner tests are not customer revenue and do not reset public historical success rates. Historical July and September examples below keep their original dates and builds. Read the [current Actor documentation](ACTOR_README.md) before using the starter.
+
+## September 30 starter evidence and source limitation
 
 [Open the capped three-store check](https://apify.com/kamerozkan/home-depot-bulk-inventory-by-zip/examples/check-home-depot-stock-across-zip-codes)
 
@@ -25,7 +37,7 @@ The final public-task run `De9himOlcheFaz9LE` on build `0.45.57` returned platfo
 
 Three earlier owner-started three-store tests of builds 0.45.54, 0.45.55 and 0.45.56 failed to resolve any stores. A separate one-store run `BgHbzPKqj6PMN3rfs` on 0.45.56 produced [one real observation](09_live_one_store_observation_output.json) after two failed sessions. Its third session received a valid HTTP 200 storeSearch list. The service can instead return HTTP 206 with a `data/error` envelope and no usable stores. Source responses are intermittent. The positive single row and any later bounded success do not establish general reliability.
 
-The current release updates the README and two runtime modules: `src/session.js` and `src/store-locator.js`. It distinguishes source errors, access blocks, malformed responses and verified empty results. A proven HTTP 206 service-error envelope skips repeated fallback calls within the same unsuccessful session and lets the existing three-attempt retry select a fresh session. This reduces redundant requests; it does not promise source acceptance. All other source files and schemas remain unchanged. Eleven local tests passed; [verification evidence](customer-check-verification-2026-09-30.json) records the exact live result.
+The September 30 release updated the README and two runtime modules: `src/session.js` and `src/store-locator.js`. It distinguishes source errors, access blocks, malformed responses and verified empty results. A proven HTTP 206 service-error envelope skips repeated fallback calls within the same unsuccessful session and lets the existing three-attempt retry select a fresh session. This reduces redundant requests; it does not promise source acceptance. All other source files and schemas remain unchanged. Eleven local tests passed; [verification evidence](customer-check-verification-2026-09-30.json) records the exact live result.
 
 At the FREE tier checked on 30 September 2026, an Actor-start event costs $0.005 once after a valid session and an inventory-result event costs $0.003 per successful row. Three successful rows illustrate $0.014 in event charges. Start is not priced per GB. Failed rows have no inventory-result charge; a start event can still apply after a valid session. The final verification requested a $0.05 maximum total charge. This arithmetic is not an owner invoice or customer revenue; live pricing and plan terms govern actual billing.
 

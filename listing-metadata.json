@@ -7,20 +7,45 @@
   "seoDescription": "Look up Home Depot product prices, store inventory and pickup by ZIP code. Compare known items across nearby stores, with explicit unavailable fields.",
   "isPublic": true,
   "url": "https://apify.com/kamerozkan/home-depot-bulk-inventory-by-zip",
-  "checkedAt": "2026-09-30",
-  "changeScope": "listing metadata synchronized; response handling, honest source limitation and existing capped public check updated",
+  "checkedAt": "2026-10-02",
+  "changeScope": "Runtime integrity repair and actual bounded October source evidence; listing/pricing unchanged",
   "runtimeChanged": true,
-  "schemasChanged": false,
+  "schemasChanged": true,
   "examplesRegenerated": false,
-  "latestBuildNumber": "0.45.57",
-  "latestBuildId": "Az5hV79rfPWG5Ckns",
+  "latestBuildNumber": "0.45.62",
+  "latestBuildId": "VPNUsPv9P9CW6C2TK",
   "starterTaskId": "FTah87WeK1E6sodev",
-  "starterRunId": "De9himOlcheFaz9LE",
-  "healthyStarterVerified": true,
   "newExamplesAdded": [
+    "10_october_repair_check_input.json",
+    "10_october_repair_check_dataset.json",
+    "10_october_repair_check_summary.json",
+    "11_october_invalid_zip_summary.json",
+    "11_october_invalid_zip_verification.json",
+    "11_october_invalid_zip_input.json"
+  ],
+  "historicalExamplesRegenerated": false,
+  "historicalSep30StarterEvidence": {
+    "runId": "De9himOlcheFaz9LE",
+    "buildId": "Az5hV79rfPWG5Ckns",
+    "buildNumber": "0.45.57",
+    "healthy": true,
+    "checkedAt": "2026-09-30"
+  },
+  "inputValidationChanged": false,
+  "inputDescriptionsCorrected": true,
+  "currentVerificationRunId": "wNFgEfOn9quZqfYZ1",
+  "currentVerificationOutputStatus": "SUCCEEDED",
+  "healthyCurrentReleaseVerified": true,
+  "outputSummarySchemaAdded": true,
+  "schemaChangeScope": "Input description corrections and sample OUTPUT schema; input validation and Actor dataset types unchanged",
+  "historicalSep30ExamplesAdded": [
     "08_customer_check_input.json",
     "08_live_customer_check_output.json",
     "09_live_one_store_observation_output.json"
   ],
-  "historicalExamplesRegenerated": false
+  "historicalSep30StarterRunId": "De9himOlcheFaz9LE",
+  "healthyRuntimeBuildNumber": "0.45.61",
+  "healthyRuntimeBuildId": "60D2cbpDJqtx9cNU4",
+  "runtimeIdenticalToHealthyBuild": true,
+  "invalidInputVerificationRunId": "r14ZtIdQIrghjZRbb"
 }

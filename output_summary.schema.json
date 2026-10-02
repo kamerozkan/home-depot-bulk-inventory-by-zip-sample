@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Home Depot OUTPUT progress and result summary (2 October 2026 repair)",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "status": {
+      "enum": [
+        "RUNNING",
+        "SUCCEEDED",
+        "PARTIAL",
+        "FAILED",
+        "CHARGE_LIMIT_REACHED"
+      ]
+    },
+    "isFinal": {
+      "type": "boolean"
+    },
+    "runInterrupted": {
+      "type": "boolean"
+    },
+    "successfulRows": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "failedRows": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "matrixRows": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "finishedAt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "completedZipCodes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9]{5}$"
+      },
+      "description": "Processed ZIPs. Not a guarantee of full store or product coverage."
+    },
+    "pendingZipCodes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9]{5}$"
+      }
+    },
+    "activeZipCode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "storeCoverage": {
+      "type": "object",
+      "properties": {
+        "complete": {
+          "type": "boolean"
+        },
+        "requestedStoresPerZip": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "underfilledZipCodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "resolvedStoresByZip": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      },
+      "required": [
+        "complete",
+        "requestedStoresPerZip",
+        "underfilledZipCodes",
+        "resolvedStoresByZip"
+      ]
+    },
+    "storeDiscovery": {
+      "type": "object",
+      "description": "Observed ZIP-specific lookup provenance, not proof of nearest-store ranking or complete geographic coverage."
+    }
+  },
+  "required": [
+    "status"
+  ]
+}
